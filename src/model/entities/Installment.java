@@ -2,13 +2,13 @@ package model.entities;
 
 import java.util.Date;
 
-public class Quota {
+public class Installment {
 	private Date due;
 	private Double value;
 	
-	public Quota() {}
+	public Installment() {}
 
-	public Quota(Date due, Double value) {
+	public Installment(Date due, Double value) {
 		this.due = due;
 		this.value = value;
 	}

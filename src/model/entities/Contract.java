@@ -9,7 +9,7 @@ public class Contract {
 	private Date date;
 	private Double contractValue;
 	
-	List<Quota> quotas = new ArrayList<>();
+	List<Installment> quotas = new ArrayList<>();
 	
 	public Contract() {}
 
@@ -43,15 +43,15 @@ public class Contract {
 		this.contractValue = contractValue;
 	}
 
-	public List<Quota> getQuotas() {
+	public List<Installment> getQuotas() {
 		return quotas;
 	}
 	
-	public void addQuotas(Quota quota) {
+	public void addQuotas(Installment quota) {
 		quotas.add(quota);
 	}
 	
-	public void removeQuotas(Quota quota) {
+	public void removeQuotas(Installment quota) {
 		quotas.remove(quota);
 	}
 }

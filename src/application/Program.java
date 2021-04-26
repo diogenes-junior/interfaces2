@@ -7,9 +7,9 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import model.entities.Contract;
-import model.entities.Quota;
-import model.services.PayPalTaxService;
-import model.services.QuotaService;
+import model.entities.Installment;
+import model.services.ContractService;
+import model.services.PayPalService;
 
 public class Program {
 
@@ -27,14 +27,14 @@ public class Program {
 		System.out.print("Contract value: ");
 		double contractValue = input.nextDouble();
 		System.out.print("Enter number of installments: ");
-		int quotas = input.nextInt();
+		int months = input.nextInt();
 		
 		Contract contract = new Contract(numberContract, date, contractValue);
-		QuotaService qs = new QuotaService(quotas, new PayPalTaxService());
-		qs.processQuota(contract);
+		ContractService cs = new ContractService(new PayPalService());
+		cs.processContract(contract, months);
 		
 		System.out.println("Installments:");
-		for(Quota q : contract.getQuotas()) {
+		for(Installment q : contract.getQuotas()) {
 			System.out.println(sdf.format(q.getDue()) + " - " + String.format("%.2f", q.getValue()));
 		}
 	
